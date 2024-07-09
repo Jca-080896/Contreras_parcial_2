@@ -4,7 +4,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const correctUsername = 'xamen_parcial2';
+    const correctUsername = 'examen_parcial2';
     const correctPassword = 'Voyporel100';
 
     const messageElement = document.getElementById('message');
@@ -22,5 +22,3 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         messageElement.style.color = 'red';
     }
 });
-
-
