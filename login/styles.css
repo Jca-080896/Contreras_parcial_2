@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: lightgreen; /* Cambiado a un color verde claro */
+}
+
+.login-container {
+    background-color: #ffffff; /* Blanco puro */
+    padding: 30px; /* Aumentado el padding */
+    border-radius: 8px; /* Bordes más redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sutil sombra */
+    width: 350px; /* Aumentada la anchura */
+    text-align: center; /* Centrado del contenido */
+}
+
+h2 {
+    margin-bottom: 30px; /* Aumentado el margen inferior */
+    color: #333; /* Color de texto más oscuro */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Ajuste de espaciado */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px; /* Ajuste de espaciado */
+    color: #555; /* Color de texto más suave */
+}
+
+input {
+    width: calc(100% - 20px); /* Ajuste para el padding */
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Borde ligero */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+button {
+    width: 100%;
+    padding: 12px; /* Ajuste de padding */
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+button:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el ratón */
+}
+
+#message {
+    margin-top: 20px;
+    text-align: center;
+    color: #ff6347; /* Rojo más suave */
+}

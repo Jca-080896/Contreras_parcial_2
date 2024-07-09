@@ -1,0 +1,222 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1> Calculadoras</h1>
+    <!-- Calculadora de Efectividad en la vida cotidiana -->
+    <div class="container">
+        <h1>Calculadora de Efectividad en la vida cotidiana</h1>
+
+        <form id="formulario1">
+            <label for="realizados">Logros alcanzados:</label>
+            <input type="number" id="realizados1" name="realizados" min="0" required>
+
+            <label for="total">Total de objetivos:</label>
+            <input type="number" id="total1" name="total" min="1" required>
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        <div class="resultado" id="resultado1"></div>
+    </div>
+
+    <!-- Calculadora de Efectividad a partir de Eficacia y Eficiencia -->
+    <div class="container">
+        <h1>Calculadora de Efectividad a partir de Eficacia y Eficiencia</h1>
+
+        <form id="formulario2">
+            <label for="eficacia">Eficacia:</label>
+            <input type="number" id="eficacia" name="eficacia" min="0" max="100" step="0.01" required>
+
+            <label for="eficiencia">Eficiencia:</label>
+            <input type="number" id="eficiencia" name="eficiencia" min="0" max="100" step="0.01" required>
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        <div class="resultado" id="resultado2"></div>
+    </div>
+
+    <!-- Calculadora de Efectividad en la Producción -->
+    <div class="container">
+        <h1>Calculadora de Efectividad en la Producción</h1>
+
+        <form id="formulario3">
+            <label for="unidades_producidas">Unidades producidas:</label>
+            <input type="number" id="unidades_producidas" name="unidades_producidas" min="0" required>
+
+            <label for="tiempo_planeado">Tiempo planeado:</label>
+            <input type="number" id="tiempo_planeado" name="tiempo_planeado" min="0" step="0.01" required>
+
+            <label for="tiempo_real">Tiempo real:</label>
+            <input type="number" id="tiempo_real" name="tiempo_real" min="0" step="0.01" required>
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        <div class="resultado" id="resultado3"></div>
+    </div>
+
+    <!-- Calculadora de Retorno de Inversión -->
+    <div class="container">
+        <h1>Calculadora de Retorno de Inversión</h1>
+
+        <form id="formulario4">
+            <label for="inversion">Inversión:</label>
+            <input type="number" id="inversion" name="inversion" min="0" required>
+
+            <label for="beneficio">Beneficio:</label>
+            <input type="number" id="beneficio" name="beneficio" min="0" required>
+
+            <button type="submit">Calcular ROI</button>
+        </form>
+
+        <div class="resultado" id="resultado4"></div>
+    </div>
+
+    <script>
+        // Calculadora de Efectividad en la vida cotidiana
+        const formulario1 = document.getElementById('formulario1');
+        const resultado1 = document.getElementById('resultado1');
+
+        formulario1.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const realizados = parseFloat(document.getElementById('realizados1').value);
+            const total = parseFloat(document.getElementById('total1').value);
+
+            if (realizados > total) {
+                alert('El número de logros alcanzados no puede ser mayor que el número total de objetivos.');
+                return;
+            }
+
+            const efectividad = (realizados / total) * 100;
+
+            resultado1.innerHTML = `
+                <p>Efectividad: ${efectividad.toFixed(2)}%</p>
+            `;
+        });
+
+        // Calculadora de Efectividad a partir de Eficacia y Eficiencia
+        const formulario2 = document.getElementById('formulario2');
+        const resultado2 = document.getElementById('resultado2');
+
+        formulario2.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const eficacia = parseFloat(document.getElementById('eficacia').value);
+            const eficiencia = parseFloat(document.getElementById('eficiencia').value);
+
+            if (eficacia > 100 || eficiencia > 100) {
+                alert('Los valores de eficacia y eficiencia no pueden ser mayores que 100%.');
+                return;
+            }
+
+            const efectividad = (eficacia * eficiencia) / 100;
+
+            resultado2.innerHTML = `
+                <p>Efectividad: ${efectividad.toFixed(2)}%</p>
+            `;
+        });
+
+        // Calculadora de Efectividad en la Producción
+        const formulario3 = document.getElementById('formulario3');
+        const resultado3 = document.getElementById('resultado3');
+
+        formulario3.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const unidades_producidas = parseFloat(document.getElementById('unidades_producidas').value);
+            const tiempo_planeado = parseFloat(document.getElementById('tiempo_planeado').value);
+            const tiempo_real = parseFloat(document.getElementById('tiempo_real').value);
+
+            if (tiempo_real <= 0) {
+                alert('El tiempo real no puede ser menor o igual a cero.');
+                return;
+            }
+
+            const eficiencia = (tiempo_planeado / tiempo_real) * 100;
+            const efectividad = (unidades_producidas / tiempo_planeado) * 100;
+
+            resultado3.innerHTML = `
+                <p>Eficiencia: ${eficiencia.toFixed(2)}%</p>
+                <p>Efectividad: ${efectividad.toFixed(2)}%</p>
+            `;
+        });
+
+        // Calculadora de Retorno de Inversión
+        const formulario4 = document.getElementById('formulario4');
+        const resultado4 = document.getElementById('resultado4');
+
+        formulario4.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const inversion = parseFloat(document.getElementById('inversion').value);
+            const beneficio = parseFloat(document.getElementById('beneficio').value);
+
+            if (isNaN(inversion) || isNaN(beneficio)) {
+                resultado4.textContent = 'Error: Ingrese valores numéricos válidos.';
+                return;
+            }
+
+            const roi = (beneficio - inversion) / inversion * 100;
+
+            if (roi >= 0) {
+                resultado4.textContent = `ROI: ${roi.toFixed(2)}%`;
+            } else {
+                resultado4.textContent = `ROI: -${(-roi).toFixed(2)}% (Pérdida)`;
+            }
+        });
+    </script>
+</body>
+</html>
+```
